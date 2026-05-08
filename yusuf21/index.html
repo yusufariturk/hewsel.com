@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Giriş</title>
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --bg:#f4f6fb;--surface:#fff;--border:#e2e8f0;
+      --text:#0f172a;--muted:#64748b;--blue:#2563eb;--red:#ef4444;
+      --green:#16a34a;--yellow:#f59e0b;
+    }
+    body{font-family:system-ui,'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;-webkit-font-smoothing:antialiased}
+
+    /* ── LOGIN ── */
+    #login{
+      display:flex;align-items:center;justify-content:center;
+      min-height:100vh;padding:24px;
+    }
+    .login-box{
+      background:var(--surface);border:1px solid var(--border);
+      border-radius:20px;padding:48px 40px;width:100%;max-width:380px;
+      box-shadow:0 4px 32px rgba(0,0,0,.08);
+    }
+    .login-icon{font-size:36px;margin-bottom:20px;text-align:center}
+    .login-box h1{font-size:22px;font-weight:800;margin-bottom:6px;text-align:center}
+    .login-box p{color:var(--muted);font-size:14px;text-align:center;margin-bottom:32px}
+    .field label{display:block;font-size:13px;font-weight:600;margin-bottom:6px;color:var(--muted)}
+    .field input{
+      width:100%;padding:12px 14px;border-radius:10px;
+      border:1.5px solid var(--border);background:var(--bg);
+      font-size:15px;color:var(--text);outline:none;
+      transition:border-color .2s,box-shadow .2s;
+    }
+    .field input:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(37,99,235,.12)}
+    .err{
+      margin-top:12px;padding:10px 14px;border-radius:8px;
+      background:#fef2f2;border:1px solid #fecaca;
+      color:var(--red);font-size:13px;font-weight:500;display:none;
+    }
+    .btn-login{
+      width:100%;margin-top:20px;padding:13px;border-radius:11px;
+      background:var(--blue);color:#fff;font-size:15px;font-weight:700;
+      border:none;cursor:pointer;transition:background .2s,transform .15s;
+    }
+    .btn-login:hover{background:#1d4ed8;transform:translateY(-1px)}
+    .btn-login:active{transform:translateY(0)}
+
+    /* ── APP ── */
+    #app{display:none;min-height:100vh;flex-direction:column}
+    .topbar{
+      position:sticky;top:0;z-index:10;
+      background:rgba(244,246,251,.92);backdrop-filter:blur(12px);
+      border-bottom:1px solid var(--border);
+      display:flex;align-items:center;justify-content:space-between;
+      padding:0 24px;height:60px;
+    }
+    .topbar-title{font-size:16px;font-weight:800;letter-spacing:-.3px}
+    .topbar-actions{display:flex;gap:8px;align-items:center}
+    .btn-sm{
+      padding:7px 14px;border-radius:8px;font-size:13px;font-weight:600;
+      border:1px solid var(--border);background:var(--surface);
+      color:var(--text);cursor:pointer;transition:all .2s;
+    }
+    .btn-sm:hover{background:var(--bg);border-color:#c7d2e0}
+    .btn-new{
+      background:var(--blue);color:#fff;border-color:transparent;
+    }
+    .btn-new:hover{background:#1d4ed8;border-color:transparent}
+    .btn-logout{color:var(--muted)}
+
+    .main{flex:1;padding:24px;max-width:900px;margin:0 auto;width:100%}
+
+    /* ── EMPTY ── */
+    .empty{
+      text-align:center;padding:80px 24px;color:var(--muted);
+    }
+    .empty-icon{font-size:48px;margin-bottom:16px}
+    .empty h2{font-size:18px;font-weight:700;color:var(--text);margin-bottom:8px}
+    .empty p{font-size:14px}
+
+    /* ── NOTES GRID ── */
+    .notes-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+      gap:16px;
+    }
+    .note-card{
+      background:var(--surface);border:1.5px solid var(--border);
+      border-radius:16px;padding:20px;cursor:pointer;
+      transition:all .2s;position:relative;
+    }
+    .note-card:hover{border-color:rgba(37,99,235,.3);box-shadow:0 4px 20px rgba(37,99,235,.08);transform:translateY(-2px)}
+    .note-card-title{font-size:15px;font-weight:700;margin-bottom:8px;
+      white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .note-card-body{
+      font-size:13px;color:var(--muted);line-height:1.6;
+      display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;
+    }
+    .note-card-date{font-size:11px;color:#94a3b8;margin-top:12px}
+    .note-card-del{
+      position:absolute;top:12px;right:12px;
+      width:28px;height:28px;border-radius:8px;
+      background:transparent;border:none;cursor:pointer;
+      color:#94a3b8;font-size:16px;
+      display:flex;align-items:center;justify-content:center;
+      opacity:0;transition:all .15s;
+    }
+    .note-card:hover .note-card-del{opacity:1}
+    .note-card-del:hover{background:#fef2f2;color:var(--red)}
+
+    /* ── MODAL ── */
+    .modal-backdrop{
+      position:fixed;inset:0;background:rgba(15,23,42,.4);
+      backdrop-filter:blur(4px);z-index:50;
+      display:flex;align-items:center;justify-content:center;
+      padding:20px;opacity:0;pointer-events:none;
+      transition:opacity .2s;
+    }
+    .modal-backdrop.open{opacity:1;pointer-events:all}
+    .modal{
+      background:var(--surface);border-radius:20px;
+      width:100%;max-width:640px;max-height:90vh;
+      display:flex;flex-direction:column;
+      box-shadow:0 20px 60px rgba(0,0,0,.15);
+      transform:scale(.96) translateY(10px);
+      transition:transform .25s;
+    }
+    .modal-backdrop.open .modal{transform:scale(1) translateY(0)}
+    .modal-head{
+      display:flex;align-items:center;gap:10px;
+      padding:20px 24px 0;
+    }
+    .modal-head input{
+      flex:1;font-size:18px;font-weight:800;border:none;
+      outline:none;background:transparent;color:var(--text);
+      font-family:inherit;
+    }
+    .modal-head input::placeholder{color:#cbd5e1}
+    .modal-close{
+      width:32px;height:32px;border-radius:8px;
+      border:1px solid var(--border);background:transparent;
+      cursor:pointer;font-size:18px;color:var(--muted);
+      display:flex;align-items:center;justify-content:center;
+      transition:all .15s;flex-shrink:0;
+    }
+    .modal-close:hover{background:var(--bg)}
+    .modal textarea{
+      flex:1;margin:16px 24px;padding:0;
+      border:none;outline:none;resize:none;
+      font-size:15px;line-height:1.75;color:var(--text);
+      font-family:inherit;background:transparent;
+      min-height:240px;
+    }
+    .modal textarea::placeholder{color:#cbd5e1}
+    .modal-foot{
+      display:flex;justify-content:flex-end;gap:10px;
+      padding:16px 24px;border-top:1px solid var(--border);
+    }
+    .btn-save{
+      padding:10px 24px;border-radius:10px;
+      background:var(--blue);color:#fff;font-size:14px;font-weight:700;
+      border:none;cursor:pointer;transition:background .2s;
+    }
+    .btn-save:hover{background:#1d4ed8}
+    .btn-cancel{
+      padding:10px 20px;border-radius:10px;
+      background:transparent;color:var(--muted);font-size:14px;font-weight:600;
+      border:1px solid var(--border);cursor:pointer;transition:all .2s;
+    }
+    .btn-cancel:hover{background:var(--bg)}
+
+    /* ── CONFIRM ── */
+    .confirm-backdrop{
+      position:fixed;inset:0;background:rgba(15,23,42,.5);
+      backdrop-filter:blur(4px);z-index:60;
+      display:flex;align-items:center;justify-content:center;
+      padding:20px;opacity:0;pointer-events:none;transition:opacity .2s;
+    }
+    .confirm-backdrop.open{opacity:1;pointer-events:all}
+    .confirm-box{
+      background:var(--surface);border-radius:16px;padding:28px;
+      width:100%;max-width:340px;text-align:center;
+      box-shadow:0 20px 60px rgba(0,0,0,.2);
+    }
+    .confirm-box h3{font-size:17px;font-weight:800;margin-bottom:8px}
+    .confirm-box p{font-size:14px;color:var(--muted);margin-bottom:24px}
+    .confirm-btns{display:flex;gap:10px;justify-content:center}
+    .btn-danger{
+      padding:10px 22px;border-radius:9px;
+      background:var(--red);color:#fff;font-size:14px;font-weight:700;
+      border:none;cursor:pointer;transition:background .2s;
+    }
+    .btn-danger:hover{background:#dc2626}
+
+    @media(max-width:480px){
+      .login-box{padding:32px 24px}
+      .main{padding:16px}
+    }
+  </style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="login">
+  <div class="login-box">
+    <div class="login-icon">🔒</div>
+    <h1>Gizli Notlar</h1>
+    <p>Devam etmek için şifreyi gir</p>
+    <div class="field">
+      <label>Şifre</label>
+      <input type="password" id="pw" placeholder="••••••••" autocomplete="off"/>
+    </div>
+    <div class="err" id="err">Hatalı şifre. Tekrar dene.</div>
+    <button class="btn-login" onclick="doLogin()">Giriş Yap</button>
+  </div>
+</div>
+
+<!-- APP -->
+<div id="app">
+  <header class="topbar">
+    <div class="topbar-title">📒 Notlarım</div>
+    <div class="topbar-actions">
+      <button class="btn-sm btn-new" onclick="openModal()">+ Yeni Not</button>
+      <button class="btn-sm btn-logout" onclick="doLogout()">Çıkış</button>
+    </div>
+  </header>
+  <main class="main" id="main"></main>
+</div>
+
+<!-- NOTE MODAL -->
+<div class="modal-backdrop" id="modal-backdrop">
+  <div class="modal">
+    <div class="modal-head">
+      <input type="text" id="note-title" placeholder="Başlık…" maxlength="120"/>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <textarea id="note-body" placeholder="Notunu buraya yaz…"></textarea>
+    <div class="modal-foot">
+      <button class="btn-cancel" onclick="closeModal()">İptal</button>
+      <button class="btn-save" onclick="saveNote()">Kaydet</button>
+    </div>
+  </div>
+</div>
+
+<!-- DELETE CONFIRM -->
+<div class="confirm-backdrop" id="confirm-backdrop">
+  <div class="confirm-box">
+    <h3>Notu Sil</h3>
+    <p>Bu not kalıcı olarak silinecek. Emin misin?</p>
+    <div class="confirm-btns">
+      <button class="btn-cancel" onclick="closeConfirm()">Vazgeç</button>
+      <button class="btn-danger" onclick="confirmDelete()">Sil</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const HASH = '844a08d45799eb6693082dc393b6bf1c35269d1f2fc132ecb4ddde611d2383cc';
+const STORE_KEY = 'nx_' + HASH.slice(0,12);
+const SESSION_KEY = 'nx_s';
+
+async function sha256(str){
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+  return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
+}
+
+let notes = [];
+let editingId = null;
+let deletingId = null;
+
+(async()=>{
+  if(sessionStorage.getItem(SESSION_KEY)==='1'){
+    await unlock();
+  }
+})();
+
+document.getElementById('pw').addEventListener('keydown', e=>{ if(e.key==='Enter') doLogin(); });
+
+async function doLogin(){
+  const val = document.getElementById('pw').value;
+  const h = await sha256(val);
+  if(h === HASH){
+    sessionStorage.setItem(SESSION_KEY,'1');
+    await unlock();
+  } else {
+    const err = document.getElementById('err');
+    err.style.display='block';
+    document.getElementById('pw').value='';
+    document.getElementById('pw').focus();
+    setTimeout(()=>err.style.display='none', 3000);
+  }
+}
+
+async function unlock(){
+  document.getElementById('login').style.display='none';
+  document.getElementById('app').style.display='flex';
+  loadNotes();
+  render();
+}
+
+function doLogout(){
+  sessionStorage.removeItem(SESSION_KEY);
+  location.reload();
+}
+
+function loadNotes(){
+  try{ notes = JSON.parse(localStorage.getItem(STORE_KEY)||'[]'); }
+  catch{ notes=[]; }
+}
+
+function saveNotes(){
+  localStorage.setItem(STORE_KEY, JSON.stringify(notes));
+}
+
+function render(){
+  const el = document.getElementById('main');
+  if(notes.length===0){
+    el.innerHTML=`
+      <div class="empty">
+        <div class="empty-icon">📝</div>
+        <h2>Henüz not yok</h2>
+        <p>Yeni Not butonuyla ilk notunu oluştur.</p>
+      </div>`;
+    return;
+  }
+  el.innerHTML=`<div class="notes-grid">${notes.map(n=>`
+    <div class="note-card" onclick="openModal('${n.id}')">
+      <div class="note-card-title">${esc(n.title||'Başlıksız')}</div>
+      <div class="note-card-body">${esc(n.body||'')}</div>
+      <div class="note-card-date">${fmtDate(n.updated)}</div>
+      <button class="note-card-del" onclick="askDelete(event,'${n.id}')" title="Sil">🗑</button>
+    </div>`).join('')}</div>`;
+}
+
+function openModal(id){
+  editingId = id||null;
+  const n = id ? notes.find(x=>x.id===id) : null;
+  document.getElementById('note-title').value = n ? n.title : '';
+  document.getElementById('note-body').value  = n ? n.body  : '';
+  document.getElementById('modal-backdrop').classList.add('open');
+  setTimeout(()=>(n
+    ? document.getElementById('note-body')
+    : document.getElementById('note-title')).focus(), 80);
+}
+
+function closeModal(){
+  document.getElementById('modal-backdrop').classList.remove('open');
+  editingId=null;
+}
+
+document.getElementById('modal-backdrop').addEventListener('click', e=>{
+  if(e.target===e.currentTarget) closeModal();
+});
+
+function saveNote(){
+  const title = document.getElementById('note-title').value.trim();
+  const body  = document.getElementById('note-body').value.trim();
+  if(!title && !body) return;
+  if(editingId){
+    const n = notes.find(x=>x.id===editingId);
+    if(n){ n.title=title; n.body=body; n.updated=Date.now(); }
+  } else {
+    notes.unshift({id:uid(), title, body, created:Date.now(), updated:Date.now()});
+  }
+  saveNotes();
+  render();
+  closeModal();
+}
+
+function askDelete(e, id){
+  e.stopPropagation();
+  deletingId=id;
+  document.getElementById('confirm-backdrop').classList.add('open');
+}
+function closeConfirm(){
+  document.getElementById('confirm-backdrop').classList.remove('open');
+  deletingId=null;
+}
+function confirmDelete(){
+  notes=notes.filter(x=>x.id!==deletingId);
+  saveNotes(); render(); closeConfirm();
+}
+
+document.addEventListener('keydown', e=>{
+  if(e.key==='Escape'){
+    if(document.getElementById('confirm-backdrop').classList.contains('open')) closeConfirm();
+    else closeModal();
+  }
+});
+
+function uid(){ return Date.now().toString(36)+Math.random().toString(36).slice(2); }
+function esc(s){ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function fmtDate(ts){
+  const d=new Date(ts);
+  return d.toLocaleDateString('tr-TR',{day:'2-digit',month:'short',year:'numeric'})
+    +' · '+d.toLocaleTimeString('tr-TR',{hour:'2-digit',minute:'2-digit'});
+}
+<\/script>
+</body>
+</html>
