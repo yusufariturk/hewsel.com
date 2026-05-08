@@ -3,184 +3,313 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Hewsel - 2003'ten Beri Güvenilir Çözüm Ortağınız</title>
+  <title>Hewsel — Teknolojide 22 Yıllık Güven</title>
   <meta name="description" content="2003'ten bu yana Akdeniz ve Güneydoğu Anadolu'da cep telefonu aksesuarları ve teknik ürünlerde sektör lideri." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/style.css">
 </head>
 <body>
 
-  <!-- Background -->
-  <div class="bg-canvas">
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-    <div class="orb orb-3"></div>
+<!-- ░░ CANVAS BACKGROUND ░░ -->
+<canvas id="c"></canvas>
+
+<!-- ░░ NAVBAR ░░ -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="logo" href="#">
+      <span class="logo-h">H</span>ewsel
+    </a>
+    <nav class="nav-links">
+      <a href="#hakkimizda">Hakkımızda</a>
+      <a href="#urunler">Ürünler</a>
+      <a href="#iletisim" class="nav-cta">İletişim</a>
+    </nav>
   </div>
-  <div class="bg-grid"></div>
+</header>
 
-  <!-- Navbar -->
-  <nav class="navbar">
-    <div class="brand">Hewsel</div>
-    <div class="nav-links">
-      <a class="btn" href="#hakkimizda">Hakkımızda</a>
-      <a class="btn" href="#iletisim">İletişim</a>
+<!-- ░░ HERO ░░ -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="badge">
+      <span class="badge-dot"></span>
+      2003'ten Bu Yana Sektörün Öncüsü
     </div>
-  </nav>
-
-  <div class="container">
-
-    <!-- Hero -->
-    <section class="hero reveal">
-      <div class="hero-badge">2003'ten Bu Yana Sektör Öncüsü</div>
-      <h1>
-        Teknoloji ve<br>
-        <span class="gradient-text">Güvenin Buluştuğu</span><br>
-        Nokta
-      </h1>
-      <p>
-        Akdeniz ve Güneydoğu Anadolu bölgelerinde 22 yıllık tecrübemizle
-        cep telefonu aksesuarları ve teknik ürünlerde güvenilir çözüm ortağınız.
-      </p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="#urunler">Ürünlerimizi Keşfedin</a>
-        <a class="btn" href="#hakkimizda">Bizi Tanıyın</a>
-      </div>
-    </section>
-
-    <!-- Stats -->
-    <div class="stats-band reveal reveal-delay-1">
-      <div class="stat">
-        <div class="stat-num" data-count="2003">2003</div>
-        <div class="stat-label">Kuruluş Yılı</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num" data-count="22">22+</div>
-        <div class="stat-label">Yıllık Tecrübe</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num" data-count="2">2</div>
-        <div class="stat-label">Bölge Liderliği</div>
-      </div>
+    <h1 class="hero-title">
+      Teknoloji<br>
+      <span class="shine-text">Güven&nbsp;&amp;&nbsp;Kalite</span><br>
+      Tek Adreste
+    </h1>
+    <p class="hero-sub">
+      Akdeniz ve Güneydoğu Anadolu bölgelerinde 22 yıllık deneyimle
+      cep telefonu aksesuarları ve teknik ürünlerde güvenilir çözüm ortağınız.
+    </p>
+    <div class="hero-btns">
+      <a href="#urunler" class="btn-glow">Ürünleri Keşfet</a>
+      <a href="#hakkimizda" class="btn-ghost">Bizi Tanıyın</a>
     </div>
+    <div class="hero-scroll">
+      <span></span>
+    </div>
+  </div>
+</section>
 
-    <!-- Feature Cards -->
-    <div class="features-grid">
-      <div class="feature-card reveal reveal-delay-1">
-        <div class="feature-icon">🏆</div>
-        <div class="feature-title">Bölgesel Lider</div>
-        <div class="feature-desc">İki büyük bölgede köklü ve güçlü pazar varlığı</div>
+<!-- ░░ STATS ░░ -->
+<section class="stats-section">
+  <div class="wrap">
+    <div class="stats-row">
+      <div class="stat-box s1">
+        <div class="stat-icon">🏆</div>
+        <div class="stat-val" data-to="22">0</div>
+        <div class="stat-unit">Yıl</div>
+        <div class="stat-lbl">Sektör Deneyimi</div>
       </div>
-      <div class="feature-card reveal reveal-delay-2">
-        <div class="feature-icon">📱</div>
-        <div class="feature-title">Geniş Ürün Yelpazesi</div>
-        <div class="feature-desc">Her ihtiyaca özel çözüm ve binlerce ürün çeşidi</div>
+      <div class="stat-box s2">
+        <div class="stat-icon">📦</div>
+        <div class="stat-val" data-to="5000">0</div>
+        <div class="stat-unit">+</div>
+        <div class="stat-lbl">Ürün Çeşidi</div>
       </div>
-      <div class="feature-card reveal reveal-delay-3">
-        <div class="feature-icon">⚡</div>
-        <div class="feature-title">Hızlı Teslimat</div>
-        <div class="feature-desc">Zamanında teslimat ve kesintisiz tedarik garantisi</div>
+      <div class="stat-box s3">
+        <div class="stat-icon">🌍</div>
+        <div class="stat-val" data-to="2">0</div>
+        <div class="stat-unit">Bölge</div>
+        <div class="stat-lbl">Pazar Liderliği</div>
+      </div>
+      <div class="stat-box s4">
+        <div class="stat-icon">⭐</div>
+        <div class="stat-val" data-to="2003">0</div>
+        <div class="stat-unit"></div>
+        <div class="stat-lbl">Kuruluş Yılı</div>
       </div>
     </div>
+  </div>
+</section>
 
-    <!-- About -->
-    <div class="section-divider" id="hakkimizda"></div>
-    <div class="section-header reveal">
-      <div class="section-tag">// Hakkımızda</div>
-      <h2 class="section-title">22 Yıllık Tecrübe,<br><span class="gradient-text">Tek Adres</span></h2>
-    </div>
-
-    <div class="about-grid reveal">
-      <div class="card about-text">
+<!-- ░░ ABOUT ░░ -->
+<section class="section" id="hakkimizda">
+  <div class="wrap">
+    <div class="section-label">— Hakkımızda</div>
+    <h2 class="section-title">22 Yıllık Tecrübe,<br><em>Tek Adres</em></h2>
+    <div class="about-grid">
+      <div class="glass-card about-card">
+        <div class="card-glow g-blue"></div>
         <p>
           <strong>Hewsel</strong>, 2003 yılında kurulduğu günden bu yana müşteri
-          memnuniyetini ön planda tutarak, Akdeniz ve Güneydoğu Anadolu
+          memnuniyetini ön planda tutarak Akdeniz ve Güneydoğu Anadolu
           bölgelerinde cep telefonu aksesuarları ve teknik ürünler sektöründe
           öncü konumunu sürdürmektedir.
         </p>
         <p>
-          22 yıllık deneyimimiz boyunca binlerce müşteriye kaliteli ürün ve
-          güvenilir hizmet sunarak sektörde fark yarattık.
+          Binlerce müşteriye kaliteli ürün ve güvenilir hizmet sunarak sektörde
+          fark yarattık. Sürekli yenilenen ürün yelpazemiz ve müşteri odaklı
+          yaklaşımımızla bölgenin en güvenilir tedarikçisi olduk.
         </p>
       </div>
-      <div class="card about-text">
-        <p>
-          Sürekli yenilenen ürün yelpazemiz ve müşteri odaklı yaklaşımımızla
-          bölgenin en güvenilir tedarikçisi olmayı başardık.
-        </p>
-        <p>
-          Profesyonel ekibimiz ve geniş tedarikçi ağımız sayesinde her zaman
-          en rekabetçi fiyat ve en hızlı çözümü sunuyoruz.
-        </p>
-      </div>
-    </div>
-
-    <!-- Products -->
-    <div class="section-divider" id="urunler"></div>
-    <div class="section-header reveal">
-      <div class="section-tag">// Ürün & Hizmetler</div>
-      <h2 class="section-title">Çözüm Odaklı<br><span class="gradient-text">Ürün Gamımız</span></h2>
-    </div>
-
-    <div class="card reveal">
-      <div class="product-item">
-        <div class="product-icon">📱</div>
-        <div>
-          <div class="product-name">Cep Telefonu Aksesuarları</div>
-          <div class="product-desc">Kılıf, ekran koruyucu, şarj cihazları ve daha fazlası — her marka ve modele uyumlu</div>
+      <div class="feature-list">
+        <div class="feat-item">
+          <div class="feat-num">01</div>
+          <div>
+            <div class="feat-title">Güvenilir Tedarik</div>
+            <div class="feat-desc">Kesintisiz stok ve zamanında teslimat garantisi</div>
+          </div>
         </div>
-      </div>
-      <div class="product-item">
-        <div class="product-icon">🔧</div>
-        <div>
-          <div class="product-name">Teknik Ürünler & Yedek Parçalar</div>
-          <div class="product-desc">Profesyonel teknik çözümler, orijinal ve muadil yedek parça seçenekleri</div>
+        <div class="feat-item">
+          <div class="feat-num">02</div>
+          <div>
+            <div class="feat-title">Rekabetçi Fiyat</div>
+            <div class="feat-desc">Geniş tedarikçi ağı ile en uygun fiyat seçenekleri</div>
+          </div>
         </div>
-      </div>
-      <div class="product-item">
-        <div class="product-icon">🎧</div>
-        <div>
-          <div class="product-name">Ses ve Görüntü Teknolojileri</div>
-          <div class="product-desc">Kulaklık, hoparlör, multimedya çözümleri ve akıllı aksesuar ürünleri</div>
+        <div class="feat-item">
+          <div class="feat-num">03</div>
+          <div>
+            <div class="feat-title">Uzman Kadro</div>
+            <div class="feat-desc">22 yıllık sektör bilgisiyle profesyonel destek</div>
+          </div>
         </div>
       </div>
     </div>
-
-    <!-- CTA / Contact -->
-    <div class="section-divider" id="iletisim"></div>
-    <div class="cta-card reveal">
-      <h2>Birlikte Çalışalım</h2>
-      <p>22 yıllık tecrübemizi ve geniş ürün yelpazemizi sizin için çalıştıralım</p>
-      <div class="cta-buttons">
-        <a class="btn btn-primary" href="mailto:info@hewsel.com">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-          E-posta Gönder
-        </a>
-        <a class="btn" href="tel:+90">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.93 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.86 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          Hemen Ara
-        </a>
-      </div>
-    </div>
-
-    <!-- Footer -->
-    <footer class="footer">
-      <strong>Hewsel</strong> © 2003–2025 &nbsp;·&nbsp; Akdeniz ve Güneydoğu Anadolu'nun Teknoloji Ortağı
-      <div class="footer-bottom">Tüm hakları saklıdır.</div>
-    </footer>
-
   </div>
+</section>
 
-  <script>
-    // Scroll reveal
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          observer.unobserve(e.target);
-        }
+<!-- ░░ PRODUCTS ░░ -->
+<section class="section section-dark" id="urunler">
+  <div class="wrap">
+    <div class="section-label">— Ürün & Hizmetler</div>
+    <h2 class="section-title">Çözüm Odaklı<br><em>Ürün Gamımız</em></h2>
+    <div class="products-grid">
+
+      <div class="product-card">
+        <div class="card-glow g-blue"></div>
+        <div class="product-icon-wrap pi-blue">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+        </div>
+        <h3>Cep Telefonu<br>Aksesuarları</h3>
+        <p>Kılıf, ekran koruyucu, şarj cihazı ve daha fazlası — tüm marka ve modeller için.</p>
+        <div class="product-tags">
+          <span>Kılıf</span><span>Şarj</span><span>Ekran Koruyucu</span>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="card-glow g-purple"></div>
+        <div class="product-icon-wrap pi-purple">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+        </div>
+        <h3>Teknik Ürünler<br>&amp; Yedek Parça</h3>
+        <p>Profesyonel teknik çözümler, orijinal ve muadil yedek parça seçenekleri.</p>
+        <div class="product-tags">
+          <span>Orijinal</span><span>Muadil</span><span>Profesyonel</span>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="card-glow g-cyan"></div>
+        <div class="product-icon-wrap pi-cyan">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
+        </div>
+        <h3>Ses &amp; Görüntü<br>Teknolojileri</h3>
+        <p>Kulaklık, hoparlör ve multimedya ürünlerinde geniş ürün yelpazesi.</p>
+        <div class="product-tags">
+          <span>Kulaklık</span><span>Hoparlör</span><span>Multimedya</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ░░ CTA ░░ -->
+<section class="section cta-section" id="iletisim">
+  <div class="wrap">
+    <div class="cta-box">
+      <div class="cta-glow"></div>
+      <div class="cta-content">
+        <div class="section-label">— İletişim</div>
+        <h2 class="cta-title">Birlikte<br>Çalışalım</h2>
+        <p class="cta-sub">22 yıllık tecrübemizi ve binlerce ürün yelpazemizi sizin için çalıştıralım. Hemen iletişime geçin.</p>
+        <div class="cta-btns">
+          <a href="mailto:info@hewsel.com" class="btn-glow">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            E-posta Gönder
+          </a>
+          <a href="tel:+90" class="btn-ghost">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.93 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.86 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Hemen Ara
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ FOOTER ░░ -->
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <span class="logo-h">H</span>ewsel
+    </div>
+    <div class="footer-copy">
+      © 2003–2025 Hewsel · Akdeniz ve Güneydoğu Anadolu'nun Teknoloji Ortağı
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ── Canvas Particle Field ── */
+(function(){
+  const c = document.getElementById('c');
+  const ctx = c.getContext('2d');
+  let W, H, pts = [];
+
+  function resize() {
+    W = c.width = window.innerWidth;
+    H = c.height = window.innerHeight;
+  }
+
+  function initPts() {
+    pts = [];
+    const n = Math.floor((W * H) / 14000);
+    for (let i = 0; i < n; i++) {
+      pts.push({
+        x: Math.random() * W,
+        y: Math.random() * H,
+        vx: (Math.random() - 0.5) * 0.3,
+        vy: (Math.random() - 0.5) * 0.3,
+        r: Math.random() * 1.5 + 0.5
       });
-    }, { threshold: 0.12 });
+    }
+  }
 
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-  </script>
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+
+    // connections
+    for (let i = 0; i < pts.length; i++) {
+      for (let j = i + 1; j < pts.length; j++) {
+        const dx = pts[i].x - pts[j].x;
+        const dy = pts[i].y - pts[j].y;
+        const d = Math.sqrt(dx*dx + dy*dy);
+        if (d < 130) {
+          ctx.beginPath();
+          ctx.moveTo(pts[i].x, pts[i].y);
+          ctx.lineTo(pts[j].x, pts[j].y);
+          ctx.strokeStyle = `rgba(74,143,255,${0.18 * (1 - d/130)})`;
+          ctx.lineWidth = 0.6;
+          ctx.stroke();
+        }
+      }
+    }
+
+    // dots
+    for (const p of pts) {
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(107,163,255,0.55)';
+      ctx.fill();
+
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0 || p.x > W) p.vx *= -1;
+      if (p.y < 0 || p.y > H) p.vy *= -1;
+    }
+    requestAnimationFrame(draw);
+  }
+
+  resize(); initPts(); draw();
+  window.addEventListener('resize', () => { resize(); initPts(); });
+})();
+
+/* ── Navbar scroll ── */
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 40);
+});
+
+/* ── Scroll reveal ── */
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.glass-card, .product-card, .feat-item, .stat-box, .cta-box, .section-title, .section-label, .about-card').forEach(el => io.observe(el));
+
+/* ── Counter animation ── */
+function animCount(el) {
+  const to = +el.dataset.to;
+  const dur = to > 999 ? 2000 : 1200;
+  const step = dur / 60;
+  let cur = 0;
+  const inc = to / (dur / (1000/60));
+  const t = setInterval(() => {
+    cur = Math.min(cur + inc, to);
+    el.textContent = Math.floor(cur).toLocaleString('tr-TR');
+    if (cur >= to) clearInterval(t);
+  }, 1000/60);
+}
+
+const cio = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { animCount(e.target); cio.unobserve(e.target); } });
+}, { threshold: 0.5 });
+document.querySelectorAll('.stat-val').forEach(el => cio.observe(el));
+</script>
 </body>
 </html>
