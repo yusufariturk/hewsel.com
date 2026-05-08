@@ -8,116 +8,179 @@
   <link rel="stylesheet" href="/assets/style.css">
 </head>
 <body>
-  <div class="container">
-    
-    <!-- Header -->
-    <div class="header">
-      <div>
-        <div class="brand">Hewsel</div>
-        <div class="sub">Teknoloji ve Güvenin Buluştuğu Nokta</div>
-      </div>
+
+  <!-- Background -->
+  <div class="bg-canvas">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+  <div class="bg-grid"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="brand">Hewsel</div>
+    <div class="nav-links">
       <a class="btn" href="#hakkimizda">Hakkımızda</a>
+      <a class="btn" href="#iletisim">İletişim</a>
     </div>
+  </nav>
 
-    <!-- Hero Section -->
-    <div class="card" style="background: linear-gradient(135deg, #1a2438 0%, #0f1624 100%); border: 1px solid rgba(107,163,255,.2); padding: 32px;">
-      <h1 style="margin: 0 0 12px; font-size: 28px; font-weight: 800;">22 Yıllık Tecrübe, Tek Adres</h1>
-      <p style="color: #9ba8c8; font-size: 17px; line-height: 1.7; margin: 0;">
-        2003 yılından bu yana Akdeniz ve Güneydoğu Anadolu bölgelerinde 
-        cep telefonu aksesuarları ve teknik ürünler konusunda 
-        <strong style="color: #6ba3ff;">güvenilir çözüm ortağınız</strong>.
+  <div class="container">
+
+    <!-- Hero -->
+    <section class="hero reveal">
+      <div class="hero-badge">2003'ten Bu Yana Sektör Öncüsü</div>
+      <h1>
+        Teknoloji ve<br>
+        <span class="gradient-text">Güvenin Buluştuğu</span><br>
+        Nokta
+      </h1>
+      <p>
+        Akdeniz ve Güneydoğu Anadolu bölgelerinde 22 yıllık tecrübemizle
+        cep telefonu aksesuarları ve teknik ürünlerde güvenilir çözüm ortağınız.
       </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#urunler">Ürünlerimizi Keşfedin</a>
+        <a class="btn" href="#hakkimizda">Bizi Tanıyın</a>
+      </div>
+    </section>
+
+    <!-- Stats -->
+    <div class="stats-band reveal reveal-delay-1">
+      <div class="stat">
+        <div class="stat-num" data-count="2003">2003</div>
+        <div class="stat-label">Kuruluş Yılı</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num" data-count="22">22+</div>
+        <div class="stat-label">Yıllık Tecrübe</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num" data-count="2">2</div>
+        <div class="stat-label">Bölge Liderliği</div>
+      </div>
     </div>
 
-    <!-- Öne Çıkan Özellikler -->
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin: 24px 0;">
-      
-      <div class="card" style="text-align: center; padding: 20px;">
-        <div style="font-size: 32px; margin-bottom: 8px;">🏆</div>
-        <div style="font-weight: 700; margin-bottom: 4px;">Bölgesel Lider</div>
-        <div class="meta" style="margin: 0;">İki bölgede güçlü varlık</div>
+    <!-- Feature Cards -->
+    <div class="features-grid">
+      <div class="feature-card reveal reveal-delay-1">
+        <div class="feature-icon">🏆</div>
+        <div class="feature-title">Bölgesel Lider</div>
+        <div class="feature-desc">İki büyük bölgede köklü ve güçlü pazar varlığı</div>
       </div>
-
-      <div class="card" style="text-align: center; padding: 20px;">
-        <div style="font-size: 32px; margin-bottom: 8px;">📱</div>
-        <div style="font-weight: 700; margin-bottom: 4px;">Geniş Ürün Yelpazesi</div>
-        <div class="meta" style="margin: 0;">Her ihtiyaca uygun çözüm</div>
+      <div class="feature-card reveal reveal-delay-2">
+        <div class="feature-icon">📱</div>
+        <div class="feature-title">Geniş Ürün Yelpazesi</div>
+        <div class="feature-desc">Her ihtiyaca özel çözüm ve binlerce ürün çeşidi</div>
       </div>
-
-      <div class="card" style="text-align: center; padding: 20px;">
-        <div style="font-size: 32px; margin-bottom: 8px;">⚡</div>
-        <div style="font-weight: 700; margin-bottom: 4px;">Hızlı Teslimat</div>
-        <div class="meta" style="margin: 0;">Zamanında çözüm garantisi</div>
+      <div class="feature-card reveal reveal-delay-3">
+        <div class="feature-icon">⚡</div>
+        <div class="feature-title">Hızlı Teslimat</div>
+        <div class="feature-desc">Zamanında teslimat ve kesintisiz tedarik garantisi</div>
       </div>
-
     </div>
 
-    <!-- Hakkımızda -->
-    <div class="card" id="hakkimizda">
-      <h2 style="margin: 0 0 16px; font-size: 24px; font-weight: 700;">Hakkımızda</h2>
-      <p style="line-height: 1.8; color: #dce6ff; margin-bottom: 16px;">
-        <strong>Hewsel</strong>, 2003 yılında kurulduğu günden bu yana müşteri memnuniyetini 
-        ön planda tutarak, Akdeniz ve Güneydoğu Anadolu bölgelerinde cep telefonu 
-        aksesuarları ve teknik ürünler sektöründe öncü konumunu sürdürmektedir.
-      </p>
-      <p style="line-height: 1.8; color: #dce6ff; margin-bottom: 16px;">
-        22 yıllık deneyimimiz boyunca binlerce müşteriye kaliteli ürün ve 
-        güvenilir hizmet sunarak sektörde fark yarattık. Sürekli yenilenen ürün 
-        yelpazemiz ve müşteri odaklı yaklaşımımızla bölgenin en güvenilir 
-        tedarikçisi olmayı başardık.
-      </p>
-      <hr>
-      <div style="display: flex; gap: 24px; flex-wrap: wrap; margin-top: 20px;">
+    <!-- About -->
+    <div class="section-divider" id="hakkimizda"></div>
+    <div class="section-header reveal">
+      <div class="section-tag">// Hakkımızda</div>
+      <h2 class="section-title">22 Yıllık Tecrübe,<br><span class="gradient-text">Tek Adres</span></h2>
+    </div>
+
+    <div class="about-grid reveal">
+      <div class="card about-text">
+        <p>
+          <strong>Hewsel</strong>, 2003 yılında kurulduğu günden bu yana müşteri
+          memnuniyetini ön planda tutarak, Akdeniz ve Güneydoğu Anadolu
+          bölgelerinde cep telefonu aksesuarları ve teknik ürünler sektöründe
+          öncü konumunu sürdürmektedir.
+        </p>
+        <p>
+          22 yıllık deneyimimiz boyunca binlerce müşteriye kaliteli ürün ve
+          güvenilir hizmet sunarak sektörde fark yarattık.
+        </p>
+      </div>
+      <div class="card about-text">
+        <p>
+          Sürekli yenilenen ürün yelpazemiz ve müşteri odaklı yaklaşımımızla
+          bölgenin en güvenilir tedarikçisi olmayı başardık.
+        </p>
+        <p>
+          Profesyonel ekibimiz ve geniş tedarikçi ağımız sayesinde her zaman
+          en rekabetçi fiyat ve en hızlı çözümü sunuyoruz.
+        </p>
+      </div>
+    </div>
+
+    <!-- Products -->
+    <div class="section-divider" id="urunler"></div>
+    <div class="section-header reveal">
+      <div class="section-tag">// Ürün & Hizmetler</div>
+      <h2 class="section-title">Çözüm Odaklı<br><span class="gradient-text">Ürün Gamımız</span></h2>
+    </div>
+
+    <div class="card reveal">
+      <div class="product-item">
+        <div class="product-icon">📱</div>
         <div>
-          <div style="color: #6ba3ff; font-size: 28px; font-weight: 800;">2003</div>
-          <div class="meta">Kuruluş Yılı</div>
+          <div class="product-name">Cep Telefonu Aksesuarları</div>
+          <div class="product-desc">Kılıf, ekran koruyucu, şarj cihazları ve daha fazlası — her marka ve modele uyumlu</div>
         </div>
+      </div>
+      <div class="product-item">
+        <div class="product-icon">🔧</div>
         <div>
-          <div style="color: #6ba3ff; font-size: 28px; font-weight: 800;">22</div>
-          <div class="meta">Yıllık Tecrübe</div>
+          <div class="product-name">Teknik Ürünler & Yedek Parçalar</div>
+          <div class="product-desc">Profesyonel teknik çözümler, orijinal ve muadil yedek parça seçenekleri</div>
         </div>
+      </div>
+      <div class="product-item">
+        <div class="product-icon">🎧</div>
         <div>
-          <div style="color: #6ba3ff; font-size: 28px; font-weight: 800;">2</div>
-          <div class="meta">Bölge Liderliği</div>
+          <div class="product-name">Ses ve Görüntü Teknolojileri</div>
+          <div class="product-desc">Kulaklık, hoparlör, multimedya çözümleri ve akıllı aksesuar ürünleri</div>
         </div>
       </div>
     </div>
 
-    <!-- Ürünlerimiz -->
-    <div class="card">
-      <h2 style="margin: 0 0 16px; font-size: 24px; font-weight: 700;">Ürün ve Hizmetlerimiz</h2>
-      <div style="display: grid; gap: 12px;">
-        <div style="padding: 12px; background: rgba(107,163,255,.08); border-radius: 8px; border-left: 3px solid #6ba3ff;">
-          <strong>📱 Cep Telefonu Aksesuarları</strong>
-          <div class="meta" style="margin-top: 4px;">Kılıf, ekran koruyucu, şarj cihazları ve daha fazlası</div>
-        </div>
-        <div style="padding: 12px; background: rgba(107,163,255,.08); border-radius: 8px; border-left: 3px solid #6ba3ff;">
-          <strong>🔧 Teknik Ürünler</strong>
-          <div class="meta" style="margin-top: 4px;">Profesyonel çözümler ve yedek parçalar</div>
-        </div>
-        <div style="padding: 12px; background: rgba(107,163,255,.08); border-radius: 8px; border-left: 3px solid #6ba3ff;">
-          <strong>🎧 Ses ve Görüntü Teknolojileri</strong>
-          <div class="meta" style="margin-top: 4px;">Kulaklık, hoparlör ve multimedya çözümleri</div>
-        </div>
+    <!-- CTA / Contact -->
+    <div class="section-divider" id="iletisim"></div>
+    <div class="cta-card reveal">
+      <h2>Birlikte Çalışalım</h2>
+      <p>22 yıllık tecrübemizi ve geniş ürün yelpazemizi sizin için çalıştıralım</p>
+      <div class="cta-buttons">
+        <a class="btn btn-primary" href="mailto:info@hewsel.com">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          E-posta Gönder
+        </a>
+        <a class="btn" href="tel:+90">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.93 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.86 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Hemen Ara
+        </a>
       </div>
-    </div>
-
-    <!-- İletişim -->
-    <div class="card" style="text-align: center; background: linear-gradient(135deg, rgba(74,143,255,.12) 0%, rgba(74,143,255,.05) 100%);">
-      <h2 style="margin: 0 0 12px; font-size: 22px; font-weight: 700;">Bizimle İletişime Geçin</h2>
-      <p style="color: #9ba8c8; margin-bottom: 20px;">22 yıllık deneyimimizi sizin için çalıştıralım</p>
-      <a class="btn" href="mailto:info@hewsel.com" style="margin-right: 8px;">✉️ E-posta Gönder</a>
-      <a class="btn" href="tel:+90">📞 Hemen Ara</a>
     </div>
 
     <!-- Footer -->
-    <div class="footer">
-      <strong>Hewsel</strong> © 2003 - 2025 • Akdeniz ve Güneydoğu Anadolu'nun Teknoloji Ortağı
-      <div style="margin-top: 8px; font-size: 12px;">
-        Tüm hakları saklıdır.
-      </div>
-    </div>
+    <footer class="footer">
+      <strong>Hewsel</strong> © 2003–2025 &nbsp;·&nbsp; Akdeniz ve Güneydoğu Anadolu'nun Teknoloji Ortağı
+      <div class="footer-bottom">Tüm hakları saklıdır.</div>
+    </footer>
 
   </div>
+
+  <script>
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>
