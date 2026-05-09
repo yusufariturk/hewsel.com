@@ -1,280 +1,605 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Hewsel — Teknolojide 22 Yıllık Güven</title>
-  <meta name="description" content="2003'ten bu yana Akdeniz ve Güneydoğu Anadolu'da cep telefonu aksesuarları ve teknik ürünlerde sektör lideri."/>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hewsel • Teknolojide 22 Yıllık Güven</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Poppins:wght@600&amp;display=swap');
+        
+        body {
+            font-family: 'Inter', system_ui, sans-serif;
+        }
+        
+        .heading-font {
+            font-family: 'Poppins', system_ui, sans-serif;
+            font-weight: 600;
+            letter-spacing: -0.025em;
+        }
+
+        .nav-scrolled {
+            box-shadow: 0 10px 15px -3px rgb(15 23 42 / 0.05);
+        }
+
+        .product-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgb(15 23 42 / 0.1), 0 8px 10px -6px rgb(15 23 42 / 0.1);
+        }
+
+        .stat-number {
+            font-variant-numeric: tabular-nums;
+        }
+    </style>
 </head>
-<body>
+<body class="bg-slate-50 text-slate-800">
+    <!-- NAVBAR -->
+    <nav id="navbar" class="bg-white border-b border-slate-200 sticky top-0 z-50 transition-all">
+        <div class="max-w-screen-2xl mx-auto">
+            <div class="px-6 py-4 flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center gap-x-3">
+                    <div class="w-11 h-11 bg-slate-900 rounded-2xl flex items-center justify-center">
+                        <span class="text-white text-3xl font-black tracking-tighter">H</span>
+                    </div>
+                    <div>
+                        <span class="font-black text-3xl tracking-tighter">HEWSEL</span>
+                    </div>
+                </div>
 
-<canvas id="c"></canvas>
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center gap-x-8 text-sm font-medium">
+                    <a href="#hakkimizda" class="hover:text-slate-900 transition-colors">Hakkımızda</a>
+                    <a href="#urunler" class="hover:text-slate-900 transition-colors">Ürünlerimiz</a>
+                    <a href="#neden" class="hover:text-slate-900 transition-colors">Neden Hewsel?</a>
+                    <a href="#iletisim" class="hover:text-slate-900 transition-colors">İletişim</a>
+                </div>
 
-<!-- ══ NAVBAR ══ -->
-<header class="nav" id="nav">
-  <div class="nav-inner">
-    <a class="logo" href="#">
-      <span class="logo-mark">H</span>ewsel
-    </a>
-    <nav class="nav-links">
-      <a href="#hakkimizda">Hakkımızda</a>
-      <a href="#urunler">Ürünler</a>
-      <a href="#iletisim">İletişim</a>
-      <a href="#iletisim" class="nav-btn">Bize Ulaşın →</a>
+                <div class="flex items-center gap-x-3">
+                    <a href="#iletisim" 
+                       class="hidden md:block px-6 py-2.5 bg-slate-900 hover:bg-black text-white text-sm font-semibold rounded-3xl transition-all active:scale-[0.985]">
+                        İletişime Geçin
+                    </a>
+                    
+                    <button id="mobile-menu-btn"
+                            class="md:hidden w-10 h-10 flex items-center justify-center text-slate-700 hover:bg-slate-100 rounded-2xl transition-colors">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden border-t bg-white px-6 py-4">
+            <div class="flex flex-col gap-y-4 text-sm font-medium">
+                <a href="#hakkimizda" class="py-2 mobile-link">Hakkımızda</a>
+                <a href="#urunler" class="py-2 mobile-link">Ürünlerimiz</a>
+                <a href="#neden" class="py-2 mobile-link">Neden Hewsel?</a>
+                <a href="#iletisim" class="py-2 mobile-link">İletişim</a>
+                <a href="#iletisim" 
+                   class="mt-2 w-full text-center py-3 bg-slate-900 text-white rounded-3xl font-semibold">İletişime Geçin</a>
+            </div>
+        </div>
     </nav>
-  </div>
-</header>
 
-<!-- ══ HERO ══ -->
-<section class="hero" id="hero">
-  <div class="hero-deco deco-1"></div>
-  <div class="hero-deco deco-2"></div>
-  <div class="hero-deco deco-3"></div>
-  <div class="hero-inner">
-    <div class="hero-eyebrow">
-      <span class="eyebrow-dot"></span>
-      2003'ten Bu Yana Sektörün Öncüsü
-    </div>
-    <h1 class="hero-h1">
-      Türkiye'nin<br>
-      <span class="hero-accent">Teknoloji &amp;<br>Aksesuar</span>
-      Lideri
-    </h1>
-    <p class="hero-lead">
-      Akdeniz ve Güneydoğu Anadolu'da <strong>22 yıllık</strong> köklü deneyimle
-      cep telefonu aksesuarları ve teknik ürünlerde bölgenin en güvenilir
-      çözüm ortağı.
-    </p>
-    <div class="hero-actions">
-      <a href="#urunler" class="btn-primary">
-        Ürünleri Keşfet
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-      <a href="#hakkimizda" class="btn-outline">Bizi Tanıyın</a>
-    </div>
-    <div class="hero-trust">
-      <span class="trust-item"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Hızlı Teslimat</span>
-      <span class="trust-item"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Geniş Ürün Yelpazesi</span>
-      <span class="trust-item"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Rekabetçi Fiyat</span>
-    </div>
-  </div>
-  <div class="hero-scroll-hint">
-    <span></span><span></span><span></span>
-  </div>
-</section>
+    <!-- HERO -->
+    <header class="max-w-screen-2xl mx-auto px-6 pt-16 pb-20 md:pt-24 md:pb-28">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="inline-flex items-center gap-x-2 bg-white shadow-sm border border-slate-200 rounded-full px-4 py-1.5 mb-6">
+                <div class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
+                <span class="text-sm font-semibold text-emerald-700">2003'ten beri hizmetinizde</span>
+            </div>
+            
+            <h1 class="text-6xl md:text-7xl font-black tracking-tighter leading-none mb-6">
+                Teknolojide<br>
+                <span class="bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent">22 Yıllık Güven</span>
+            </h1>
+            
+            <p class="max-w-2xl mx-auto text-xl md:text-2xl text-slate-600 mb-10">
+                Akdeniz ve Güneydoğu Anadolu'nun lider cep telefonu aksesuarı, teknik ürün ve multimedya tedarikçisi.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#urunler" 
+                   class="px-10 py-4 bg-slate-900 hover:bg-black text-white font-semibold rounded-3xl text-lg transition-all flex items-center justify-center gap-x-3 group">
+                    Ürünleri Keşfet
+                    <i class="fa-solid fa-arrow-right group-active:translate-x-1 transition"></i>
+                </a>
+                <a href="#iletisim" 
+                   class="px-10 py-4 border-2 border-slate-300 hover:bg-white font-semibold rounded-3xl text-lg transition-all flex items-center justify-center">
+                    Teklif Alın
+                </a>
+            </div>
+            
+            <div class="mt-8 flex items-center justify-center gap-x-8 text-sm text-slate-500">
+                <div class="flex items-center gap-x-2">
+                    <i class="fa-solid fa-check text-emerald-500"></i>
+                    <span>Hızlı Teslimat</span>
+                </div>
+                <div class="flex items-center gap-x-2">
+                    <i class="fa-solid fa-check text-emerald-500"></i>
+                    <span>Geniş Stok</span>
+                </div>
+            </div>
+        </div>
+    </header>
 
-<!-- ══ STATS ══ -->
-<section class="stats-strip">
-  <div class="wrap">
-    <div class="stats-grid">
-      <div class="stat-card" data-delay="0">
-        <div class="stat-top"><span class="stat-num" data-to="22">0</span><span class="stat-sfx">Yıl</span></div>
-        <div class="stat-lbl">Kesintisiz Sektör Deneyimi</div>
-        <div class="stat-bar"></div>
-      </div>
-      <div class="stat-card" data-delay="1">
-        <div class="stat-top"><span class="stat-num" data-to="5000">0</span><span class="stat-sfx">+</span></div>
-        <div class="stat-lbl">Çeşit Ürün Portföyü</div>
-        <div class="stat-bar"></div>
-      </div>
-      <div class="stat-card" data-delay="2">
-        <div class="stat-top"><span class="stat-num" data-to="2">0</span><span class="stat-sfx">Bölge</span></div>
-        <div class="stat-lbl">Güçlü Pazar Liderliği</div>
-        <div class="stat-bar"></div>
-      </div>
-      <div class="stat-card" data-delay="3">
-        <div class="stat-top"><span class="stat-num" data-to="2003">0</span><span class="stat-sfx"></span></div>
-        <div class="stat-lbl">Yılından Bu Yana Hizmet</div>
-        <div class="stat-bar"></div>
-      </div>
-    </div>
-  </div>
-</section>
+    <!-- STATS -->
+    <section class="max-w-screen-2xl mx-auto px-6 pb-16">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
+            <div class="bg-white rounded-3xl p-8 border border-slate-100 text-center">
+                <div class="text-5xl font-black text-slate-900 stat-number">22</div>
+                <div class="text-slate-500 mt-1 font-medium">Yıl Tecrübe</div>
+            </div>
+            <div class="bg-white rounded-3xl p-8 border border-slate-100 text-center">
+                <div class="text-5xl font-black text-slate-900 stat-number">15.000</div>
+                <div class="text-slate-500 mt-1 font-medium">+ Ürün Çeşidi</div>
+            </div>
+            <div class="bg-white rounded-3xl p-8 border border-slate-100 text-center">
+                <div class="text-5xl font-black text-slate-900 stat-number">50</div>
+                <div class="text-slate-500 mt-1 font-medium">+ İl / Bölge</div>
+            </div>
+            <div class="bg-white rounded-3xl p-8 border border-slate-100 text-center">
+                <div class="text-5xl font-black text-slate-900 stat-number">98</div>
+                <div class="text-slate-500 mt-1 font-medium">% Müşteri Memnuniyeti</div>
+            </div>
+        </div>
+    </section>
 
-<!-- ══ ABOUT ══ -->
-<section class="section" id="hakkimizda">
-  <div class="wrap">
-    <div class="about-layout">
-      <div class="about-left reveal">
-        <p class="section-eyebrow">— Hakkımızda</p>
-        <h2 class="section-h2">22 Yıllık<br><em>Köklü Tecrübe</em></h2>
-        <p class="about-lead">
-          <strong>Hewsel</strong>, 2003 yılında kurulduğu günden bu yana
-          müşteri memnuniyetini ön planda tutarak Akdeniz ve Güneydoğu
-          Anadolu bölgelerinde cep telefonu aksesuarları ve teknik ürünler
-          sektöründe öncü konumunu sürdürmektedir.
-        </p>
-        <p class="about-body">
-          Binlerce müşteriye kaliteli ürün ve güvenilir hizmet sunarak
-          sektörde fark yarattık. Sürekli yenilenen ürün yelpazemiz ve
-          müşteri odaklı yaklaşımımızla bölgenin en güvenilir tedarikçisi
-          olmayı başardık.
-        </p>
-        <a href="#iletisim" class="btn-primary" style="margin-top:8px">İletişime Geçin →</a>
-      </div>
-      <div class="about-right reveal">
-        <div class="pillar-card p1">
-          <div class="pillar-icon">🎯</div>
-          <div class="pillar-title">Güvenilir Tedarik</div>
-          <div class="pillar-desc">Kesintisiz stok yönetimi ve zamanında teslimat garantisi ile işlerinizi aksatmıyoruz.</div>
+    <!-- HAKKIMIZDA -->
+    <section id="hakkimizda" class="max-w-screen-2xl mx-auto px-6 py-20 bg-white">
+        <div class="max-w-4xl mx-auto">
+            <div class="flex flex-col md:flex-row gap-12 items-center">
+                <div class="flex-1">
+                    <div class="uppercase tracking-[3px] text-sm font-bold text-slate-500 mb-3">KURULUŞ 2003</div>
+                    <h2 class="text-5xl font-black tracking-tighter leading-none mb-6">22 Yıllık<br>Köklü Tecrübe</h2>
+                    
+                    <div class="space-y-4 text-lg text-slate-600">
+                        <p><strong>Hewsel</strong>, 2003 yılında Akdeniz ve Güneydoğu Anadolu bölgelerinde faaliyet göstermeye başladı.</p>
+                        <p>Müşteri memnuniyetini her zaman ön planda tutarak cep telefonu aksesuarları, teknik yedek parçalar ve ses/görüntü teknolojileri alanında güvenilir çözüm ortağınız olduk.</p>
+                    </div>
+                    
+                    <div class="mt-8 flex flex-wrap gap-3">
+                        <div class="px-5 py-2 bg-slate-100 rounded-3xl text-sm font-medium flex items-center gap-x-2">
+                            <i class="fa-solid fa-map-marker-alt text-emerald-600"></i>
+                            <span>Antalya • Adana • Gaziantep • Diyarbakır</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flex-1">
+                    <div class="bg-slate-900 text-white p-10 rounded-3xl">
+                        <div class="text-emerald-400 text-sm font-bold mb-2">MİSYONUMUZ</div>
+                        <p class="text-2xl leading-tight">"Bölgemizin her noktasına kaliteli teknoloji ürünlerini en hızlı ve en uygun fiyatla ulaştırmak."</p>
+                        <div class="mt-8 pt-8 border-t border-white/20 text-sm opacity-75">
+                            22 yıldır aynı heyecanla çalışıyoruz.
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="pillar-card p2">
-          <div class="pillar-icon">💡</div>
-          <div class="pillar-title">Rekabetçi Fiyat</div>
-          <div class="pillar-desc">Geniş tedarikçi ağımız sayesinde her zaman en uygun fiyat seçeneklerini sunuyoruz.</div>
-        </div>
-        <div class="pillar-card p3">
-          <div class="pillar-icon">🤝</div>
-          <div class="pillar-title">Uzman Kadro</div>
-          <div class="pillar-desc">22 yıllık sektör bilgisi ve deneyimiyle size özel profesyonel destek sağlıyoruz.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- ══ PRODUCTS ══ -->
-<section class="section section-warm" id="urunler">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <p class="section-eyebrow">— Ürün &amp; Hizmetler</p>
-      <h2 class="section-h2">Çözüm Odaklı<br><em>Ürün Gamımız</em></h2>
-      <p class="section-sub">Her ihtiyaca özel ürün ve hizmetlerimizle yanınızdayız.</p>
-    </div>
-    <div class="products-grid">
-      <div class="prod-card reveal" data-delay="0">
-        <div class="prod-icon-ring ring-orange">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+    <!-- ÜRÜNLERİMİZ -->
+    <section id="urunler" class="max-w-screen-2xl mx-auto px-6 py-20">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-12">
+                <div class="uppercase tracking-[3px] text-sm font-bold text-slate-500">ÇÖZÜM ODAKLI</div>
+                <h2 class="text-5xl font-black tracking-tighter mt-2">Ürün Gamımız</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="product-card bg-white border border-slate-200 rounded-3xl p-8 group">
+                    <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors">
+                        <i class="fa-solid fa-mobile-alt text-4xl text-blue-600 group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">Cep Telefonu Aksesuarları</h3>
+                    <ul class="space-y-2 text-slate-600">
+                        <li class="flex items-center gap-x-3"><i class="fa-solid fa-check text-emerald-500 w-4"></i> Premium Kılıflar (Tüm modeller)</li>
+                        <li class="flex items-center gap-x-3"><i class="fa-solid fa-check text-emerald-500 w-4"></i> Hızlı Şarj Cihazları & Kablolar</li>
+                        <li class="flex items-center gap-x-3"><i class="fa-solid fa-check text-emerald-500 w-4"></i> Tempered Glass Ekran Koruyucular</li>
+                        <li class="flex items-center gap-x-3"><i class="fa-solid fa-check text-emerald-500 w-4"></i> 20.000mAh Powerbank'ler</li>
+                        <li class="flex items-center gap-x-3"><i class="fa-solid fa-check text-emerald-500 w-4"></i> Araç İçi Şarj & Tutucular</li>
+                    </ul>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="product-card bg-white border border-slate-200 rounded-3xl p-8 group">
+                    <div class="w-16 h-16 bg-amber-100 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-amber-600 transition-colors">
+                        <i class="fa-solid fa-tools text-4xl text-amber-600 group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">Teknik Ürünler &amp; Yedek Parça</h3>
+                    <ul class="space-y-2 text-slate-600">
+                        <li class="flex items-center gap-x-3"><i class="fa-solid fa-check text-emerald-500 w-4"></i> Orijinal &amp; Uyumlu Bataryalar</li>
+                        <li class="flex items-center gap-x-3"><i class="fa-solid fa-check text-emerald-500 w-4"></i> Ekran + Dokunmatik Paneller</li>
+                        <li class="flex items-center gap-x-3"><i class="fa-solid fa-check text-emerald-500 w-4"></i> Kamera Modülleri</li>
+                        <li class="flex items-center gap-x-3"><i class="fa-solid fa-check text-emerald-500 w-4"></i> Ana Kart &amp; Flex Kablolar</li>
+                        <li class="flex items-center gap-x-3"><i class="fa-solid fa-check text-emerald-500 w-4"></i> Tamir Setleri &amp; Parçalar</li>
+                    </ul>
+                </div>
+                
+                <!-- Card 3 -->
+                <div class="product-card bg-white border border-slate-200 rounded-3xl p-8 group">
+                    <div class="w-16 h-16 bg-violet-100 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-violet-600 transition-colors">
+                        <i class="fa-solid fa-headset text-4xl text-violet-600 group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">Ses &amp; Görüntü Teknolojileri</h3>
+                    <ul class="space-y-2 text-slate-600">
+                        <li class="flex items-center gap-x-3"><i class="fa-solid fa-check text-emerald-500 w-4"></i> Kablosuz Kulaklık &amp; TWS</li>
+                        <li class="flex items-center gap-x-3"><i class="fa-solid fa-check text-emerald-500 w-4"></i> Bluetooth Hoparlörler</li>
+                        <li class="flex items-center gap-x-3"><i class="fa-solid fa-check text-emerald-500 w-4"></i> Araç Ses Sistemleri</li>
+                        <li class="flex items-center gap-x-3"><i class="fa-solid fa-check text-emerald-500 w-4"></i> Akıllı TV Aksesuarları</li>
+                        <li class="flex items-center gap-x-3"><i class="fa-solid fa-check text-emerald-500 w-4"></i> Multimedya Cihazları</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="text-center mt-8">
+                <a href="#iletisim" class="inline-flex items-center text-sm font-semibold text-slate-600 hover:text-slate-900 group">
+                    Tüm ürün kataloğunu talep edin 
+                    <i class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition"></i>
+                </a>
+            </div>
         </div>
-        <h3 class="prod-title">Cep Telefonu Aksesuarları</h3>
-        <p class="prod-desc">Kılıf, ekran koruyucu, şarj cihazı ve daha fazlası — tüm marka ve modeller için geniş stok.</p>
-        <ul class="prod-list">
-          <li>Koruyucu kılıf &amp; kapak çeşitleri</li>
-          <li>Temperli cam ekran koruyucular</li>
-          <li>Hızlı şarj adaptör &amp; kablolar</li>
-          <li>Kablosuz şarj ürünleri</li>
-        </ul>
-        <div class="prod-footer">
-          <span class="prod-tag">Kılıf</span><span class="prod-tag">Şarj</span><span class="prod-tag">Ekran Koruma</span>
-        </div>
-      </div>
-      <div class="prod-card prod-featured reveal" data-delay="1">
-        <div class="prod-badge">En Çok Tercih Edilen</div>
-        <div class="prod-icon-ring ring-amber">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-        </div>
-        <h3 class="prod-title">Teknik Ürünler &amp; Yedek Parça</h3>
-        <p class="prod-desc">Profesyonel teknik çözümler, orijinal ve muadil yedek parça seçenekleriyle tam destek.</p>
-        <ul class="prod-list">
-          <li>Orijinal &amp; muadil yedek parçalar</li>
-          <li>Tamir &amp; bakım ekipmanları</li>
-          <li>Profesyonel teknik aletler</li>
-          <li>Toplu alım avantajları</li>
-        </ul>
-        <div class="prod-footer">
-          <span class="prod-tag">Orijinal</span><span class="prod-tag">Muadil</span><span class="prod-tag">Profesyonel</span>
-        </div>
-      </div>
-      <div class="prod-card reveal" data-delay="2">
-        <div class="prod-icon-ring ring-orange">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
-        </div>
-        <h3 class="prod-title">Ses &amp; Görüntü Teknolojileri</h3>
-        <p class="prod-desc">Kulaklık, hoparlör ve multimedya ürünlerinde kapsamlı ürün yelpazesi.</p>
-        <ul class="prod-list">
-          <li>Kablolu &amp; kablosuz kulaklıklar</li>
-          <li>Taşınabilir bluetooth hoparlörler</li>
-          <li>Akıllı aksesuar ürünleri</li>
-          <li>Multimedya çözümleri</li>
-        </ul>
-        <div class="prod-footer">
-          <span class="prod-tag">Kulaklık</span><span class="prod-tag">Hoparlör</span><span class="prod-tag">Multimedya</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- ══ WHY US ══ -->
-<section class="section" id="neden">
-  <div class="wrap">
-    <div class="section-head reveal" style="text-align:center">
-      <p class="section-eyebrow">— Neden Hewsel?</p>
-      <h2 class="section-h2" style="text-align:center">Bizi Tercih Etmenin<br><em>4 Güçlü Nedeni</em></h2>
-    </div>
-    <div class="why-grid">
-      <div class="why-card reveal" data-delay="0"><div class="why-num">01</div><div class="why-icon">⚡</div><h3 class="why-title">Hızlı &amp; Güvenilir Teslimat</h3><p class="why-desc">Geniş stok yapımız sayesinde siparişleriniz en kısa sürede hazırlanır ve zamanında teslim edilir.</p></div>
-      <div class="why-card reveal" data-delay="1"><div class="why-num">02</div><div class="why-icon">🏆</div><h3 class="why-title">Kalite Garantisi</h3><p class="why-desc">Tedarik ettiğimiz tüm ürünler titizlikle seçilmiş, kalite standartlarımızdan geçirilmiş ürünlerdir.</p></div>
-      <div class="why-card reveal" data-delay="2"><div class="why-num">03</div><div class="why-icon">💰</div><h3 class="why-title">En Uygun Fiyat</h3><p class="why-desc">22 yıllık sektör deneyimimiz ve güçlü tedarikçi ilişkilerimizle rakipsiz fiyatlar sunuyoruz.</p></div>
-      <div class="why-card reveal" data-delay="3"><div class="why-num">04</div><div class="why-icon">📞</div><h3 class="why-title">Satış Sonrası Destek</h3><p class="why-desc">Satış öncesi ve sonrasında profesyonel ekibimizle her zaman yanınızda olmaya devam ediyoruz.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ CTA ══ -->
-<section class="cta-section" id="iletisim">
-  <div class="wrap">
-    <div class="cta-card reveal">
-      <div class="cta-bg-shape s1"></div>
-      <div class="cta-bg-shape s2"></div>
-      <div class="cta-inner">
-        <p class="section-eyebrow" style="color:rgba(255,255,255,.7)">— İletişim</p>
-        <h2 class="cta-h2">Birlikte<br>Büyüyelim</h2>
-        <p class="cta-sub">22 yıllık tecrübemizi ve 5.000'den fazla ürün yelpazemizi sizin için çalıştıralım. Hemen iletişime geçin, size özel teklif hazırlayalım.</p>
-        <div class="cta-actions">
-          <a href="mailto:info@hewsel.com" class="btn-white">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-            info@hewsel.com
-          </a>
+    <!-- NEDEN HEWSEL -->
+    <section id="neden" class="max-w-screen-2xl mx-auto px-6 py-20 bg-white">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-14">
+                <div class="uppercase tracking-[3px] text-sm font-bold text-slate-500">4 GÜÇLÜ NEDEN</div>
+                <h2 class="text-5xl font-black tracking-tighter mt-2">Bizi Tercih Etmenin<br>4 Güçlü Nedeni</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-slate-900 text-white p-10 rounded-3xl flex gap-6">
+                    <div class="text-7xl font-black text-white/10">01</div>
+                    <div>
+                        <div class="font-bold text-2xl mb-3">Hızlı &amp; Güvenilir Teslimat</div>
+                        <p class="text-slate-300">Bölge içi aynı gün, diğer illere 24-48 saat içinde teslimat. Kendi araç filomuzla çalışıyoruz.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white border border-slate-200 p-10 rounded-3xl flex gap-6">
+                    <div class="text-7xl font-black text-slate-200">02</div>
+                    <div>
+                        <div class="font-bold text-2xl mb-3">Rekabetçi Fiyatlandırma</div>
+                        <p class="text-slate-600">Doğrudan ithalatçı avantajıyla en uygun fiyatları sunuyoruz. Toptan ve perakende fırsatlar.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white border border-slate-200 p-10 rounded-3xl flex gap-6">
+                    <div class="text-7xl font-black text-slate-200">03</div>
+                    <div>
+                        <div class="font-bold text-2xl mb-3">Geniş ve Güncel Ürün Yelpazesi</div>
+                        <p class="text-slate-600">15.000+ çeşit stok ile her model ve markaya çözüm sunuyoruz. Haftalık yeni ürün girişi.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-slate-900 text-white p-10 rounded-3xl flex gap-6">
+                    <div class="text-7xl font-black text-white/10">04</div>
+                    <div>
+                        <div class="font-bold text-2xl mb-3">Profesyonel Teknik Destek</div>
+                        <p class="text-slate-300">7/24 teknik danışmanlık + 1 yıl garanti + iade kolaylığı. Bölge bayilerimize özel eğitim desteği.</p>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- ══ FOOTER ══ -->
-<footer class="footer">
-  <div class="wrap footer-inner">
-    <div class="footer-brand">
-      <div><span class="logo-mark">H</span>ewsel</div>
-      <div class="footer-tagline">Teknoloji ve Güvenin Buluştuğu Nokta</div>
-    </div>
-    <div class="footer-links">
-      <a href="#hakkimizda">Hakkımızda</a>
-      <a href="#urunler">Ürünler</a>
-      <a href="#iletisim">İletişim</a>
-    </div>
-    <div class="footer-copy">© 2003–2025 Hewsel<br><span>Tüm hakları saklıdır.</span></div>
-  </div>
-</footer>
+    <!-- TESTIMONIALS -->
+    <section class="max-w-screen-2xl mx-auto px-6 py-20">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-12">
+                <div class="text-emerald-600 font-bold text-sm tracking-widest">MÜŞTERİLERİMİZ NE DİYOR?</div>
+                <h2 class="text-4xl font-black tracking-tighter mt-2">Gerçek Yorumlar</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white p-8 rounded-3xl border border-slate-100">
+                    <div class="flex gap-x-1 text-amber-400 mb-4">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="italic">"Hewsel ile çalışmaya başladıktan sonra stok sıkıntısı yaşamıyoruz. Teslimat hızı inanılmaz. Teşekkürler!"</p>
+                    <div class="mt-6 flex items-center gap-x-3">
+                        <div class="w-10 h-10 bg-slate-200 rounded-full flex items-center justify-center font-bold text-slate-600">AK</div>
+                        <div>
+                            <div class="font-semibold">Ahmet Kılıç</div>
+                            <div class="text-xs text-slate-500">Sahibinden • Antalya</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-8 rounded-3xl border border-slate-100">
+                    <div class="flex gap-x-1 text-amber-400 mb-4">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <p class="italic">"Diyarbakır'dan Gaziantep'e kadar en güvenilir tedarikçi Hewsel. Fiyat/performans oranı çok iyi."</p>
+                    <div class="mt-6 flex items-center gap-x-3">
+                        <div class="w-10 h-10 bg-slate-200 rounded-full flex items-center justify-center font-bold text-slate-600">MY</div>
+                        <div>
+                            <div class="font-semibold">Mehmet Yıldırım</div>
+                            <div class="text-xs text-slate-500">TeknoMarket • Diyarbakır</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-8 rounded-3xl border border-slate-100">
+                    <div class="flex gap-x-1 text-amber-400 mb-4">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="italic">"Powerbank ve kılıf stoklarımız hep Hewsel'den. Kalite ve hız konusunda rakip tanımıyoruz."</p>
+                    <div class="mt-6 flex items-center gap-x-3">
+                        <div class="w-10 h-10 bg-slate-200 rounded-full flex items-center justify-center font-bold text-slate-600">FT</div>
+                        <div>
+                            <div class="font-semibold">Fatma Tekin</div>
+                            <div class="text-xs text-slate-500">Mobil Dünya • Adana</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<script>
-(function(){
-  const cv=document.getElementById('c'),ctx=cv.getContext('2d');
-  let W,H,pts=[];
-  function resize(){W=cv.width=window.innerWidth;H=cv.height=window.innerHeight;}
-  function init(){pts=[];const n=Math.floor(W*H/18000);for(let i=0;i<n;i++)pts.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.25,vy:(Math.random()-.5)*.25,r:Math.random()*1.2+.4});}
-  function draw(){
-    ctx.clearRect(0,0,W,H);
-    for(let i=0;i<pts.length;i++){for(let j=i+1;j<pts.length;j++){const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.hypot(dx,dy);if(d<120){ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);ctx.strokeStyle=`rgba(249,115,22,${.1*(1-d/120)})`;ctx.lineWidth=.5;ctx.stroke();}}}
-    for(const p of pts){ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle='rgba(251,146,60,.22)';ctx.fill();p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;}
-    requestAnimationFrame(draw);
-  }
-  resize();init();draw();
-  window.addEventListener('resize',()=>{resize();init();});
-})();
-window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('stuck',window.scrollY>60));
-const revealObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){const d=e.target.dataset.delay||0;setTimeout(()=>e.target.classList.add('visible'),d*120);revealObs.unobserve(e.target);}});},{threshold:.1});
-document.querySelectorAll('.reveal').forEach(el=>revealObs.observe(el));
-const statObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){const d=+(e.target.dataset.delay||0);setTimeout(()=>e.target.classList.add('visible'),d*120);statObs.unobserve(e.target);}});},{threshold:.2});
-document.querySelectorAll('.stat-card').forEach(el=>statObs.observe(el));
-function runCount(el){const to=+el.dataset.to,dur=to>999?2000:1000;let cur=0;const inc=to/(dur/16);const t=setInterval(()=>{cur=Math.min(cur+inc,to);el.textContent=Math.floor(cur).toLocaleString('tr-TR');if(cur>=to)clearInterval(t);},16);}
-const cntObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){runCount(e.target);cntObs.unobserve(e.target);}});},{threshold:.5});
-document.querySelectorAll('.stat-num').forEach(el=>cntObs.observe(el));
-<\/script>
+    <!-- İLETİŞİM -->
+    <section id="iletisim" class="max-w-screen-2xl mx-auto px-6 py-20 bg-slate-900 text-white">
+        <div class="max-w-3xl mx-auto text-center">
+            <div class="text-emerald-400 font-bold tracking-[3px] text-sm mb-3">BİRLİKTE BÜYÜYELİM</div>
+            <h2 class="text-5xl font-black tracking-tighter mb-4">Hemen İletişime Geçin</h2>
+            <p class="text-xl text-slate-300 max-w-md mx-auto">Toptan alım, bayilik veya özel teklif için bize ulaşın. 24 saat içinde dönüş yapıyoruz.</p>
+            
+            <div class="mt-10 bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-10">
+                <form id="contact-form" class="space-y-6 text-left">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-white/80">Adınız Soyadınız</label>
+                            <input type="text" id="name" required 
+                                   class="w-full bg-white/5 border border-white/30 rounded-2xl px-5 py-3 text-white placeholder:text-white/50 focus:outline-none focus:border-emerald-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-white/80">Telefon Numaranız</label>
+                            <input type="tel" id="phone" required 
+                                   class="w-full bg-white/5 border border-white/30 rounded-2xl px-5 py-3 text-white placeholder:text-white/50 focus:outline-none focus:border-emerald-500">
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium mb-2 text-white/80">E-posta Adresiniz</label>
+                        <input type="email" id="email" required 
+                               class="w-full bg-white/5 border border-white/30 rounded-2xl px-5 py-3 text-white placeholder:text-white/50 focus:outline-none focus:border-emerald-500">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium mb-2 text-white/80">Mesajınız / Talep Detayı</label>
+                        <textarea id="message" rows="5" required 
+                                  class="w-full bg-white/5 border border-white/30 rounded-2xl px-5 py-3 text-white placeholder:text-white/50 focus:outline-none focus:border-emerald-500 resize-y"></textarea>
+                    </div>
+                    
+                    <button type="submit" 
+                            class="w-full py-4 bg-emerald-500 hover:bg-emerald-600 active:bg-emerald-700 font-bold rounded-3xl transition-all text-lg flex items-center justify-center gap-x-3">
+                        <span>Gönder</span>
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </form>
+                
+                <div class="mt-8 pt-8 border-t border-white/20 text-center text-sm text-white/70">
+                    Veya doğrudan yazın: <a href="mailto:info@hewsel.com" class="text-emerald-400 hover:underline font-medium">info@hewsel.com</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-950 text-white/70 text-sm">
+        <div class="max-w-screen-2xl mx-auto px-6 pt-16 pb-8">
+            <div class="flex flex-col md:flex-row justify-between gap-y-12">
+                <div>
+                    <div class="flex items-center gap-x-3 mb-4">
+                        <div class="w-9 h-9 bg-white rounded-2xl flex items-center justify-center">
+                            <span class="text-slate-900 text-2xl font-black">H</span>
+                        </div>
+                        <span class="font-black text-3xl text-white tracking-tighter">HEWSEL</span>
+                    </div>
+                    <div class="max-w-xs">2003'ten beri Akdeniz ve Güneydoğu Anadolu'nun güvenilir teknoloji ortağı.</div>
+                </div>
+                
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-x-16 gap-y-8">
+                    <div>
+                        <div class="font-semibold text-white mb-4">Şirket</div>
+                        <div class="space-y-2">
+                            <a href="#hakkimizda" class="block hover:text-white">Hakkımızda</a>
+                            <a href="#neden" class="block hover:text-white">Neden Hewsel?</a>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="font-semibold text-white mb-4">Ürünler</div>
+                        <div class="space-y-2">
+                            <a href="#urunler" class="block hover:text-white">Aksesuarlar</a>
+                            <a href="#urunler" class="block hover:text-white">Yedek Parça</a>
+                            <a href="#urunler" class="block hover:text-white">Multimedya</a>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="font-semibold text-white mb-4">İletişim</div>
+                        <div class="space-y-2">
+                            <a href="mailto:info@hewsel.com" class="block hover:text-white">info@hewsel.com</a>
+                            <div>Antalya / Türkiye</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-y-4 text-xs">
+                <div>© 2026 Hewsel. Tüm hakları saklıdır.</div>
+                <div class="flex gap-x-6">
+                    <a href="#" class="hover:text-white">Gizlilik Politikası</a>
+                    <a href="#" class="hover:text-white">Kullanım Şartları</a>
+                </div>
+                <div class="flex gap-x-4 text-lg">
+                    <a href="#" class="hover:text-white"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="hover:text-white"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#" class="hover:text-white"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function initializeTailwind() {
+            // Tailwind already loaded via CDN
+        }
+        
+        function initNavbar() {
+            const navbar = document.getElementById('navbar');
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('nav-scrolled', 'bg-white/95', 'backdrop-blur-lg');
+                } else {
+                    navbar.classList.remove('nav-scrolled', 'bg-white/95', 'backdrop-blur-lg');
+                }
+            });
+        }
+        
+        function initMobileMenu() {
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+            
+            btn.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+                const icon = btn.querySelector('i');
+                if (menu.classList.contains('hidden')) {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                } else {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                }
+            });
+            
+            document.querySelectorAll('.mobile-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    menu.classList.add('hidden');
+                    btn.querySelector('i').classList.remove('fa-times');
+                    btn.querySelector('i').classList.add('fa-bars');
+                });
+            });
+        }
+        
+        function initContactForm() {
+            const form = document.getElementById('contact-form');
+            
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const btn = form.querySelector('button');
+                const originalText = btn.innerHTML;
+                
+                btn.innerHTML = `<span>Gönderiliyor...</span>`;
+                btn.disabled = true;
+                
+                setTimeout(() => {
+                    btn.innerHTML = `✓ Teşekkürler! En kısa sürede size ulaşacağız.`;
+                    btn.style.background = '#10b981';
+                    
+                    form.reset();
+                    
+                    setTimeout(() => {
+                        btn.innerHTML = originalText;
+                        btn.style.background = '';
+                        btn.disabled = false;
+                        
+                        const modal = document.createElement('div');
+                        modal.className = 'fixed inset-0 bg-black/70 flex items-center justify-center z-[100]';
+                        modal.innerHTML = `
+                            <div class="bg-white rounded-3xl p-10 max-w-sm mx-4 text-center">
+                                <div class="mx-auto w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mb-6">
+                                    <i class="fa-solid fa-check text-4xl text-emerald-600"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold text-slate-900 mb-2">Mesajınız Alındı!</h3>
+                                <p class="text-slate-600">24 saat içinde size dönüş yapacağız.</p>
+                                <button onclick="this.closest('.fixed').remove()" 
+                                        class="mt-8 w-full py-3 bg-slate-900 text-white rounded-3xl font-semibold">
+                                    Kapat
+                                </button>
+                            </div>
+                        `;
+                        document.body.appendChild(modal);
+                    }, 2200);
+                }, 1400);
+            });
+        }
+        
+        function initSmoothScroll() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        e.preventDefault();
+                        const offset = 80;
+                        const bodyRect = document.body.getBoundingClientRect().top;
+                        const elementPosition = target.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition - bodyRect - offset;
+                        
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        }
+        
+        function animateStats() {
+            const stats = document.querySelectorAll('.stat-number');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        stats.forEach(stat => {
+                            const target = parseInt(stat.textContent.replace('+', ''));
+                            const suffix = stat.textContent.includes('+') ? '+' : '';
+                            
+                            let current = 0;
+                            const increment = Math.ceil(target / 40);
+                            
+                            const timer = setInterval(() => {
+                                current += increment;
+                                if (current >= target) {
+                                    stat.textContent = target + suffix;
+                                    clearInterval(timer);
+                                } else {
+                                    stat.textContent = current + suffix;
+                                }
+                            }, 40);
+                        });
+                        observer.disconnect();
+                    }
+                });
+            });
+            
+            const statsSection = document.querySelector('.grid-cols-2');
+            if (statsSection) observer.observe(statsSection);
+        }
+        
+        function init() {
+            initializeTailwind();
+            initNavbar();
+            initMobileMenu();
+            initContactForm();
+            initSmoothScroll();
+            animateStats();
+            
+            console.log('%c[Hewsel] Tam sayfa tasarımı yüklendi ve yayında!', 'color:#64748b');
+        }
+        
+        window.onload = init;
+    </script>
 </body>
 </html>
