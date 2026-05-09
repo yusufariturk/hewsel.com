@@ -242,7 +242,6 @@
   function draw() {
     ctx.clearRect(0, 0, W, H);
 
-    // connections
     for (let i = 0; i < pts.length; i++) {
       for (let j = i + 1; j < pts.length; j++) {
         const dx = pts[i].x - pts[j].x;
@@ -252,18 +251,17 @@
           ctx.beginPath();
           ctx.moveTo(pts[i].x, pts[i].y);
           ctx.lineTo(pts[j].x, pts[j].y);
-          ctx.strokeStyle = `rgba(37,99,235,${0.12 * (1 - d/130)})`;
+          ctx.strokeStyle = `rgba(249,115,22,${0.12 * (1 - d/130)})`;
           ctx.lineWidth = 0.6;
           ctx.stroke();
         }
       }
     }
 
-    // dots
     for (const p of pts) {
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(37,99,235,0.25)';
+      ctx.fillStyle = 'rgba(249,115,22,0.3)';
       ctx.fill();
 
       p.x += p.vx; p.y += p.vy;
@@ -292,7 +290,6 @@ document.querySelectorAll('.glass-card, .product-card, .feat-item, .stat-box, .c
 function animCount(el) {
   const to = +el.dataset.to;
   const dur = to > 999 ? 2000 : 1200;
-  const step = dur / 60;
   let cur = 0;
   const inc = to / (dur / (1000/60));
   const t = setInterval(() => {
@@ -306,6 +303,6 @@ const cio = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) { animCount(e.target); cio.unobserve(e.target); } });
 }, { threshold: 0.5 });
 document.querySelectorAll('.stat-val').forEach(el => cio.observe(el));
-</script>
+<\/script>
 </body>
 </html>
